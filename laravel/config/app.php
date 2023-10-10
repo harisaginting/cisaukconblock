@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
+
+Carbon::setLocale('id');
 
 return [
 
@@ -70,7 +73,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +185,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Harisa' => App\Helpers\Harisa::class
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

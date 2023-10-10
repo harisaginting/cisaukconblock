@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('public') }}/admin/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url('public') }}/admin/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public') }}/admin/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{ url('public') }}/admin/favicon/manifest.json">
+    {{-- <link rel="manifest" href="{{ url('public') }}/admin/favicon/manifest.json"> --}}
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ url('public') }}/admin/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -30,11 +30,9 @@
     <link rel="stylesheet" href="{{ url('public') }}/admin/css/vendors/simplebar.css">
     <!-- Main styles for this application-->
     <link href="{{ url('public') }}/admin/css/style.css" rel="stylesheet">
-    <!-- We use those styles to show code examples, you should remove them in your application.-->
-    <link href="{{ url('public') }}/admin/css/examples.css" rel="stylesheet">
     <link href="{{ url('public') }}/admin/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-
+    <link href="{{ url('public') }}/admin/css/main.css" rel="stylesheet">
     <!-- JS -->
     <!-- CoreUI and necessary plugins-->
     <script src="{{ url('public') }}/admin/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
@@ -44,25 +42,32 @@
     <script src="{{ url('public') }}/admin/vendors/@coreui/chartjs/js/coreui-chartjs.js"></script>
     <script src="{{ url('public') }}/admin/vendors/@coreui/utils/js/coreui-utils.js"></script>
     <!-- Costum Plugins -->
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/jquery.min.js"></script>
+    <script src="{{ url('public') }}/admin/vendors/jquery.min.js"></script>
     <!-- Selelct 2-->
     <link rel="stylesheet" type="text/css" href="{{ url('public') }}/admin/vendors/select2/css/select2.css">
     <link rel="stylesheet" type="text/css" href="{{ url('public') }}/admin/vendors/select2/css/select2-bootstrap.css">
-    <script src="{{ url('public') }}/admin/vendors/select2/js/select2.full.min.js" type="text/javascript" charset="utf-8">
-    </script>
+    <script src="{{ url('public') }}/admin/vendors/select2/js/select2.full.min.js"></script>
     <!-- Datatables -->
-    <link rel="stylesheet" type="text/css" href="{{ url('public') }}/admin/vendors/datatables/datatablefix.min.css" />
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/datatables/datatablefix.min.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/jqueryvalidation.min.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/jqueryvalidation.min.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/bootbox.min.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/jquery.priceformat.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/moment.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/moment-timezone.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url('public') }}/admin/vendors/datatables/datatablefix.min.css">
+    <script src="{{ url('public') }}/admin/vendors/datatables/datatablefix.min.js"></script>
+    <script src="{{ url('public') }}/admin/vendors/jqueryvalidation.min.js"></script>
+    <script src="{{ url('public') }}/admin/vendors/bootbox.min.js"></script>
+    <script src="{{ url('public') }}/admin/vendors/jquery.priceformat.js"></script>
+    <script src="{{ url('public') }}/admin/vendors/moment.js"></script>
+    <script src="{{ url('public') }}/admin/vendors/moment-timezone.js"></script>
 
-    <script type="text/javascript">
+
+    <link rel="stylesheet" href="{{url('public')}}/admin/vendors/croppie/croppie.css">
+    <link href="{{url('public')}}/admin/vendors/summernote/summernote-bs4.css" rel="stylesheet">
+    <script src="{{url('public')}}/admin/vendors/summernote/summernote-bs4.js"></script>
+    <script src="{{url('public')}}/admin/vendors/croppie/croppie.js"></script>
+
+    {{-- main js --}}
+    <script src="{{ url('public') }}/admin/js/main.js"></script>
+    <script>
         const global = $(document);
         const domain = "{{ url('/') }}";
+        const base_url = "{{ url('/') }}/gwynadmin";
         const token = localStorage.getItem('_token');
         const c_username = localStorage.getItem('_username');
         const host = window.location.protocol + "//" + window.location.host;
