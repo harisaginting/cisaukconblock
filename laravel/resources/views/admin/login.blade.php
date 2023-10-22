@@ -16,20 +16,10 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GWYN ADMIN</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    {{-- <link rel="manifest" href="assets/favicon/manifest.json"> --}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('public') }}/admin/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('public') }}/admin/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public') }}/admin/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ url('public') }}/admin/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -81,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <button id="btn-login" class="btn btn-primary px-4"
-                                                type="button">Login</button>
+                                                type="submit">Login</button>
                                         </div>
                                     </div>
                                 </form>
@@ -90,7 +80,7 @@
 
                         <div class="card col-md-5 text-white bg-secondary">
                             <div class="card-body text-center">
-                                <img width="auto" alt="Gwyn Logo" src="{{ url('public') }}/gwynlogo/clear/3.png" style="object-fit: contain;object-position:center;width:100%;" />
+                                <img width="auto" alt="Gwyn Logo" src="{{ url('public') }}/admin/logo/clear/3.png" style="object-fit: contain;object-position:center;width:100%;" />
                             </div>
                         </div>
                     </div>
@@ -151,7 +141,7 @@
     }
     document.addEventListener('DOMContentLoaded', function() {
         const form = new Login();
-        $(document).on("click", "#btn-login", () => {
+        const submitForm = () => {
             if ($("#form-login").valid()) {
                 form.login(form.username(), form.password()).then((data) => {
                     f_username.attr("readOnly", true);
@@ -172,6 +162,14 @@
                     }
                 });
             }
+        }
+        $(document).on("click", "#btn-login", (e) => {
+            e.preventDefault();
+            submitForm();
+        });
+        $(document).on("submit", "#form-login", (e) => {
+            e.preventDefault();
+            submitForm();
         });
     });
 </script>

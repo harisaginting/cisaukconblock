@@ -15,7 +15,7 @@
             <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown" href="#"
                     role="button" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar avatar-md border border-2 border-primary"><img class="avatar-img"
-                            src="{{ url('public') }}/gwynlogo/2.png" alt="user@email.com"></div>
+                            src="{{ url('public') }}/admin/logo/2.png" alt="user@email.com"></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
                     <div class="dropdown-header bg-light py-2">

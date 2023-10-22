@@ -18,7 +18,7 @@ class Article extends Controller
 
     public function __construct
     (
-        Users $article,
+        Articles $article,
         Request $r
     )
     {
@@ -30,14 +30,6 @@ class Article extends Controller
 
     public function index()
     {   
-        // $totalAnggota                   = array();
-        // $totalAnggota["all"]            = Anggota::where("visible",1)->count();
-        // $totalAnggota["kakr"]           = Anggota::where("visible",1)->where("kategorial","KA/KR")->count();
-        // $totalAnggota["permata"]        = Anggota::where("visible",1)->where("kategorial","PERMATA")->count();
-        // $totalAnggota["mamre"]          = Anggota::where("visible",1)->where("kategorial","MAMRE")->count();
-        // $totalAnggota["moria"]          = Anggota::where("visible",1)->where("kategorial","MORIA")->count();
-        // $totalAnggota["saitun"]         = Anggota::where("visible",1)->where("kategorial","SAITUN")->count();
-        // $totalKeluarga                  = Keluarga::count();
         return view('admin.article.index'); 
     }
     
@@ -45,8 +37,24 @@ class Article extends Controller
     {   
         return view('admin.article.add'); 
     }
+
+    public function list(Request $request){
+        $length         = $request->input('length');
+        $start          = $request->input('start');
+        $searchValue    = !empty($_POST['search']['value']) ? trim(strtoupper($_POST['search']['value'])) : null;
+        $orderColumn    = $request->input('order')['0']['column'];
+        $orderDir       = $request->input('order')['0']['dir'];
+        $order          = $request->input('order');
+        
+        $sektor         = $request->input('sektor');
+
+        $output         = $this->article->getDatatable($length, $start, $searchValue, $orderColumn, $orderDir, $order, $sektor);  
+        $output['draw'] = $request->input('draw');
+
+        echo json_encode($output); 
+    }
    
-    public function addProcess()
+    public function process()
     {   
         $postData   = $this->r->post(); 
         $data       = array();

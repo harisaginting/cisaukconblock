@@ -10,8 +10,8 @@ class Articles extends Model
     protected $guarded = [];
     protected $table = 'articles';
 
-     function get_datatable($length, $start, $searchValue, $orderColumn, $orderDir, $order,$sektor = null){
-        $query      = DB::table('article as a')
+     function getDatatable($length, $start, $searchValue, $orderColumn, $orderDir, $order,$sektor = null){
+        $query      = DB::table(sprintf("%s as a",$this->table))
                       ->select('a.*');
         $countAll   = $query->count();
 

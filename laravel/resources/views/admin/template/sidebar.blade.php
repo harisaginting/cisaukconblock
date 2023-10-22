@@ -1,7 +1,7 @@
  <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
      <div class="sidebar-brand d-none d-md-flex">
-         <img class="sidebar-brand-full" width="auto" height="46" alt="Gwyn Logo" src="{{ url('public') }}/gwynlogo/clear/4.png" />
-         <img class="sidebar-brand-narrow" width="auto" height="46" alt="Gwyn Logo" src="{{ url('public') }}/gwynlogo/clear/2.png" />
+         <img class="sidebar-brand-full" width="auto" height="46" alt="Gwyn Logo" src="{{ url('public') }}/admin/logo/clear/4.png" />
+         <img class="sidebar-brand-narrow" width="auto" height="46" alt="Gwyn Logo" src="{{ url('public') }}/admin/logo/clear/2.png" />
      </div>
      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
          <li class="nav-item"><a class="nav-link" href="{{ url('gwynadmin') }}">

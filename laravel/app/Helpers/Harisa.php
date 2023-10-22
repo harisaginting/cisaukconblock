@@ -18,7 +18,7 @@ class Harisa
     }
 
     public static function base64_to_jpeg($base64_string, $output_file) {
-        $ifp = fopen( base_path()."/../public/img/".$output_file, 'wb' ); 
+        $ifp = fopen( base_path()."/../public/img/upload/".$output_file, 'wb' ); 
         // $data = explode( ',', $base64_string );
         // fwrite( $ifp, base64_decode( $data[ 1 ] ) );
         fwrite( $ifp, base64_decode( $base64_string  ) );

@@ -5,13 +5,22 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Hukum Keluarga</title>
+  <title>Law Fam</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <meta property="og:title" content=Law Fam>
+  <meta property="og:site_name" content=Law Family Consulting>
+  <meta property="og:url" content=https://lawfamilyconsulting.com/>
+  <meta property="og:description" content=Spesialis Perkara Hukum Keluarga>
+  <meta property="og:type" content=business.business>
+  <meta property="og:image" content={{ url('public')."/logo/logo.png" }}>
+
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url('public') }}/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url('public') }}/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public') }}/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ url('public') }}/favicon/manifest.json">
 
   <!-- Google Fonts -->
   <link
@@ -19,16 +28,22 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link href="{{ url('public') }}/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  {{-- image --}}
+  <style>
+    :root {
+      --img-main-bg: url('{{ url('public') }}/img/main-bg.jpg');
+      --img-cta-bg: url('{{ url('public') }}/img/cta-bg.jpeg');
+    }
+  </style>
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="{{ url('public') }}/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Gp
@@ -45,9 +60,9 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">HK<span>.</span></a></h1>
+      {{-- <h1 class="logo me-auto me-lg-0"><a href="index.html">HK<span>.</span></a></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <a href="index.html" class="logo me-auto me-lg-0"><img src="{{ url('public') }}/logo/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -68,17 +83,23 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center justify-content-center">
+  <section id="hero" class="d-flex justify-content-center">
     <div class="container pt-0" data-aos="fade-up">
 
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-        <div class="col-xl-10 col-lg-10">
-          <h1>Hukum Keluarga</h1>
-          <h2>Spesialis Perkara Hukum Keluarga</h2>
+        <div class="col-xl-10 col-lg-10 pt-5">
+          <div id="hero-con-content" class="mt-5 pt-1 pb-5">
+            <img src="{{ url('public') }}/logo/logo-text.png" class="img-fluid hero-logo pt-1" alt="">
+            {{-- <h1>Hukum Keluarga</h1> --}}
+            {{-- <h2 style="margin-top: -20px;">Spesialis Perkara Hukum Keluarga</h2> --}}
+            {{-- <h3 class="pb-5">
+              Perceraian, Sengketa Waris, Harta Gono Gini, Hak Asuh Anak, Perjanjian Perkawinan, KDRT dan Lainnya.
+            </h3> --}}
+          </div>
         </div>
       </div>
 
-      <div class="row gy-4 mt-2 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+      {{-- <div class="row gy-4 mt-2 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
         <div class="col-xl-10 col-lg-10">
           <blockquote class="blockquote">
             <h3>
@@ -86,8 +107,13 @@
             </h3>
           </blockquote>
         </div>
+      </div> --}}
+      <div class="hero-bottom w-100 justify-content-center">
+        <h2>Spesialis Perkara Hukum Keluarga</h2>
+        <h3 class="pb-2">
+          Perceraian, Sengketa Waris, Harta Gono Gini, Hak Asuh Anak, Perjanjian Perkawinan, KDRT dan Lainnya.
+        </h3>
       </div>
-
     </div>
   </section><!-- End Hero -->
 
@@ -197,7 +223,7 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="assets/img/about-img.jpg" class="img-fluid" alt="">
+            <img src="{{ url('public') }}/img/about-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>Tentang Kami</h3>
@@ -259,7 +285,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
-                <img src="assets/img/team/team-1.png" class="img-fluid img-team" alt="">
+                <img src="{{ url('public') }}/img/team/team-1.png" class="img-fluid img-team" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -278,7 +304,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="member-img">
-                <img src="assets/img/team/team-2.jpeg" class="img-fluid img-team" alt="">
+                <img src="{{ url('public') }}/img/team/team-2.jpeg" class="img-fluid img-team" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -296,7 +322,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
               <div class="member-img">
-                <img src="assets/img/team/team-3.jpeg" class="img-fluid img-team" alt="">
+                <img src="{{ url('public') }}/img/team/team-3.jpeg" class="img-fluid img-team" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -314,7 +340,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up" data-aos-delay="400">
               <div class="member-img">
-                <img src="assets/img/team/team-4.webp" class="img-fluid img-team" alt="">
+                <img src="{{ url('public') }}/img/team/team-4.webp" class="img-fluid img-team" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -343,96 +369,60 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <img src="assets/img/partners/rhs.webp" class="img-fluid img-partner" alt="">
+              <img src="{{ url('public') }}/img/partners/rhs.webp" class="img-fluid img-partner" alt="">
             </div>
             <div class="col">
-              <img src="assets/img/partners/amc.webp" class="img-fluid img-partner" alt="">
+              <img src="{{ url('public') }}/img/partners/amc.webp" class="img-fluid img-partner" alt="">
             </div>
             <div class="col">
-              <img src="assets/img/partners/kmc.png" class="img-fluid img-partner" alt="">
+              <img src="{{ url('public') }}/img/partners/kmc.png" class="img-fluid img-partner" alt="">
             </div>
             <div class="col">
-              <img src="assets/img/partners/arr.webp" class="img-fluid img-partner" alt="">
+              <img src="{{ url('public') }}/img/partners/arr.webp" class="img-fluid img-partner" alt="">
             </div>
           </div>
         </div>
       </div>
     </section><!-- End Clients Section -->
 
-     <!-- ======= Articel Section ======= -->
-     <section id="aricle">
+    @if (count($article) > 0)
+    <!-- ======= Articel Section ======= -->
+    <section id="article">
       <div class="container" data-aos="zoom-in">
         <div class="section-title">
           <h2>Artikel</h2>
         </div>
 
         <div class="row mb-2">
-          <div class="col-md-3">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="w-100">
-                <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
-              </div>
-              <div class="col p-4 pt-2 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-primary">Artikel 1</strong>
-                <h3 class="mb-0">Title</h3>
-                <div class="mb-1 text-muted">Nov 12, 2023</div>
-                <p class="card-text mb-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit....</p>
-                <a href="#" class="stretched-link">Continue reading</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="w-100">
-                <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
-              </div>
-              <div class="col p-4 pt-2 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-primary">Artikel 1</strong>
-                <h3 class="mb-0">Title</h3>
-                <div class="mb-1 text-muted">Nov 12, 2023</div>
-                <p class="card-text mb-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit....</p>
-                <a href="#" class="stretched-link">Continue reading</a>
+          @foreach($article as $key => $value)
+            <div class="col-md-3">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="w-100">
+                  <img src="{{$value->image_desktop ? $value->image_desktop : url('public')."/logo/logo.png" }}" class="img-fluid" alt="{{$value->title}}">
+                </div>
+                <div class="col p-4 pt-2 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">{{$value->category}}</strong>
+                  <h3 class="mb-0">{{$value->title}}</h3>
+                  <div class="mb-1 text-muted">{{$value->publish_at}}</div>
+                  <p class="card-text mb-auto"> {{$value->short_description ? $value->short_description : '' }}</p>
+                  <a href="{{url('/')."/articles/".$value->url_key}}" class="stretched-link">Continue reading</a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="w-100">
-                <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
-              </div>
-              <div class="col p-4 pt-2 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-primary">Artikel 1</strong>
-                <h3 class="mb-0">Title</h3>
-                <div class="mb-1 text-muted">Nov 12, 2023</div>
-                <p class="card-text mb-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit....</p>
-                <a href="#" class="stretched-link">Continue reading</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="w-100">
-                <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
-              </div>
-              <div class="col p-4 pt-2 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-primary">Artikel 1</strong>
-                <h3 class="mb-0">Title</h3>
-                <div class="mb-1 text-muted">Nov 12, 2023</div>
-                <p class="card-text mb-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit....</p>
-                <a href="#" class="stretched-link">Continue reading</a>
-              </div>
-            </div>
-          </div>
-
+          @endforeach
         </div>
 
+        @if ($articlemore === true) 
         <div class="col-lg-12 text-center">
-          <a href="#" class="btn btn-warning btn-sm">Lihat artikel lainnya</a>
+          <a href="{{  url('/articles') }}" class="btn btn-warning btn-sm">Lihat artikel lainnya</a>
         </div>
+        @else
+        @endif
+        
       </div>
     </section><!-- End Aritcle Section -->
+    @endif
+
 
 
   </main><!-- End #main -->
@@ -445,7 +435,7 @@
 
           <div class="col-lg-12 col-md-12">
             <div class="footer-info">
-              <h3>Hukum Keluarga<span>.</span></h3>
+              <img src="{{ url('public') }}/logo/logo-text.png" alt="Law Fam" style="width: 250px;margin-left:-20px;">
             </div>
           </div>
 
@@ -484,7 +474,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Hukum Keluarga</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Law Fam</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -496,16 +486,16 @@
   <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bx bxl-whatsapp"></i></a> -->
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/aos/aos.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ url('public') }}/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ url('public') }}/assets/js/main.js"></script>
 
 </body>
 

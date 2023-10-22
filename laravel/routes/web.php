@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Landing;
+
+;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('landing/soon');});
-Route::get('/dev', function () { return view('landing/main');});
+Route::get('/', [Landing::class, 'index'])->name('landing');
+// Route::get('/', [Auth::class, 'soon'])->name('landing-soon');

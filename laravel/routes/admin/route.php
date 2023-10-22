@@ -22,8 +22,9 @@ Route::controller(Auth::class)->group(function () {
     
     Route::controller(Article::class)->group(function () {
         Route::get('/article', 'index')->name('admin-article');
+        Route::get('/article/list', 'list')->name('admin-article-list');
         Route::get('/article/add', 'add')->name('admin-article-add');
-        Route::middleware(['middleware' => 'harisa-auth-api'])->post('/article/add', 'addProcess')->name('admin-article-save');
+        Route::middleware(['middleware' => 'harisa-auth-api'])->post('/article/add', 'process')->name('admin-article-save');
     });
    
     Route::controller(Setting::class)->group(function () {

@@ -20,4 +20,11 @@
     </div>
   </body>
 </html>
+<script>
+  global.on("click","#btn-logout",()=>{
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = base_url+"/login";
+    });
+</script>
 @yield('footcode')
