@@ -24,8 +24,8 @@ class SettingsSeeder extends Seeder
                     'updated_at' => Carbon::now()
                 ],
                 [
-                    'name' => 'logo',
-                    'remarks' => 'application logo',
+                    'name' => 'contact',
+                    'remarks' => 'contact',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]

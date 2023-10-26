@@ -47,6 +47,6 @@ class createTrigger extends Migration
      */
     public function down()
     {
-         DB::unprepared('DROP TRIGGER `uuid`');
+         DB::unprepared('DROP TRIGGER IF EXISTS before_insert_users ON users');
     }
 }

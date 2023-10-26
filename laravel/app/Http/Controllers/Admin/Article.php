@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Users;
 use App\Models\Articles;
 use App\Helpers\Harisa;
-use Session;
 use Carbon\Carbon;
 
 class Article extends Controller

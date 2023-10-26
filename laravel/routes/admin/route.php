@@ -29,5 +29,6 @@ Route::controller(Auth::class)->group(function () {
    
     Route::controller(Setting::class)->group(function () {
         Route::get('/setting', 'index')->name('admin-setting');
+        Route::post('/setting/update', 'update')->name('admin-setting-save');
     });
 // });
