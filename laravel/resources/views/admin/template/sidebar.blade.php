@@ -8,7 +8,7 @@
                  <svg class="nav-icon ">
                      <use xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-speedometer">
                      </use>
-                 </svg> Dashboard <span class="badge badge-sm bg-warning ms-auto">DEV</span></a></li>
+                 </svg> Dashboard </a></li>
          {{-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="{{ url('public') }}">
                  <svg class="nav-icon">
                      <use xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-notes">
@@ -56,7 +56,7 @@
                  <svg class="nav-icon">
                      <use xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-settings">
                      </use>
-                 </svg> Settings <span class="badge badge-sm bg-warning ms-auto">DEV</span></a>
+                 </svg> Settings</a>
          </li>
      </ul>
      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>

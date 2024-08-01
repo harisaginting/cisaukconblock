@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ $appname ?? 'Law Fam'}}</title>
+    <title>{{ $appname ?? 'Law Fam' }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <meta property="og:title" content=Law Fam>
+    <meta property="og:title" content={{ $appname ?? 'Law Fam' }}>
     <meta property="og:site_name" content=Law Family Consulting>
     <meta property="og:url" content=https://lawfamilyconsulting.com />
     <meta property="og:description" content=Spesialis Perkara Hukum Keluarga>
@@ -26,6 +26,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Roboto|Montserrat">
 
     <!-- Vendor CSS Files -->
     <link href="{{ url('public') }}/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -71,6 +72,9 @@
                     <li><a class="nav-link scrollto" href="#services">Layanan</a></li>
                     <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
                     <li><a class="nav-link scrollto" href="#team">Pengacara</a></li>
+                    @if (count($article) > 0)
+                        <li><a class="nav-link scrollto" href="#article">Artikel</a></li>
+                    @endif
                     <li><a class="nav-link scrollto" href="#footer">Hubungi Kami</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -121,8 +125,39 @@
 
     <main id="main">
 
+         <!-- ======= Why us Section ======= -->
+         <section id="services" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-12 pt-2 content" data-aos="fade-right"
+                        data-aos-delay="100">
+                        <h3>Kenapa Harus Memilih Kami?</h3>
+                        <p class="pb-2">
+                            Manfaat menggunakan jasa kami, Anda bisa mendapatkan Legal Service yang di tangani oleh Tim Lawyers Professional yang sudah berpengalaman 
+                            dan Anda hanya perlu menghadiri 1 - 2 kali persidangan, selebihnya kami yang akan mewakili anda dalam persidangan dan Anda tidak perlu hadir lagi. 
+                        </p>
+                        <p>
+                            Selama proses persidangan berlangsung, kami akan terus memberikan laporan kepada Anda setiap kali persidangan dilakukan. Sebagai pengacara, 
+                            kami sangat menjunjung tinggi kualitas dan integritas setiap menangani kasus. 
+                        </p>
+                        <p>Keuntungan memilih Lawfam Family Law Consulting:</p>
+                        <ul>
+                            <li><i class="ri-check-double-line"></i> Upaya dan Proses Hukum lebih efisien</li>
+                            <li><i class="ri-check-double-line"></i> Pengacara yang di delegasikan khusus untuk menangani perkara klien</li>
+                            <li><i class="ri-check-double-line"></i> Ditangani oleh Pengacara yang sudah berpengalaman dalam menangani berbagai kasus</li>
+                            <li><i class="ri-check-double-line"></i> Mendapatkan jaminan pelayanan dalam penyelesaian kasus klien</li>
+                            <li><i class="ri-check-double-line"></i> Penjelasan perkara di jelaskan secara rinci</li>
+                            <li><i class="ri-check-double-line"></i> Kami memiliki pengacara yang tetap sehingga menjaga keamanan dalam proses persidangan berlangsung</li>
+                            <li><i class="ri-check-double-line"></i> Klien memiliki waktu luang yang lebih untuk melanjutkan aktifitas</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+
         <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
+        <section id="services2" class="services">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
@@ -132,11 +167,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-child"></i></div>
+                            <div class="icon"><i class="bi bi-heartbreak"></i></div>
                             <h4><a href="">Perceraian</a></h4>
-                            <p>Proses hukum yang terkait dengan perceraian, termasuk pembagian aset, perwalian anak, dan
-                                dukungan
-                                anak.</p>
+                            <p>Perceraian terputusnya hubungan antara suami/istri yang di tetapkan oleh putusan hakim dari pengadilan yang berwenang untuk memutus perceraian dengan metode litigasi.</p>
                         </div>
                     </div>
 
@@ -145,14 +178,14 @@
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-child"></i></div>
                             <h4><a href="">Hak Asuh Anak</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            <p>HAK asuh yang diberikan kepada orang dewasa untuk dapat mengasuhnya, merawat dan memelihara anak tersebut agar dapat dibimbing dan dibina hingga anak tersebut berusia dewasa.</p>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
                         data-aos-delay="300">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-child"></i></div>
+                            <div class="icon"><i class="bi bi-cash-stack"></i></div>
                             <h4><a href="">Harta Gono Gini</a></h4>
                             <p>Proses hukum untuk membagi harta bersama antara pasangan yang bercerai. Hal ini mencakup
                                 pembagian
@@ -161,35 +194,11 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
-                        data-aos-delay="100">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-child"></i></div>
-                            <h4><a href="">Pernikahan dan Perceraian</a></h4>
-                            <p>Pembuatan perjanjian pra-nikah, pernikahan, serta persiapan dokumen hukum yang terkait
-                                dengan
-                                perceraian.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
-                        data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-child"></i></div>
-                            <h4><a href="">Adopsi</a></h4>
-                            <p>Layanan hukum yang berkaitan dengan proses adopsi anak, termasuk persyaratan hukum,
-                                pengajuan dokumen,
-                                dan persiapan untuk pengadilan.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
                         data-aos-delay="300">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-child"></i></div>
-                            <h4><a href="">KDRT</a></h4>
-                            <p>Layanan hukum untuk melindungi korban kekerasan dalam rumah tangga melalui perintah
-                                penahanan atau
-                                perintah perlindungan.</p>
+                            <div class="icon"><i class="bi bi-file-earmark-lock-fill"></i></div>
+                            <h4><a href="">Hibah</a></h4>
+                            <p class="w-100">Pemberian berupa barang atau harta yang memiliki nilai manfaat secara sukarela, seperti kendaraan, properti ataupun yang mempunyai sisi nilai jual</p>
                         </div>
                     </div>
 
@@ -197,7 +206,7 @@
                         data-aos-delay="300">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-arch"></i></div>
-                            <h4><a href="">Wasiat</a></h4>
+                            <h4><a href="">Waris</a></h4>
                             <p>Penyiapan surat wasiat, kebijakan asuransi, dan perencanaan kepemilikan untuk mengatur
                                 hak dan tanggung
                                 jawab keuangan dalam keluarga.</p>
@@ -207,7 +216,7 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
                         data-aos-delay="300">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-arch"></i></div>
+                            <div class="icon"><i class="bi bi-peace-fill"></i></div>
                             <h4><a href="">Mediasi dan Penyelesaian Sengketa</a></h4>
                             <p> Layanan mediasi membantu anggota keluarga mencapai kesepakatan damai tanpa harus melalui
                                 pengadilan
@@ -218,11 +227,28 @@
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
                         data-aos-delay="300">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-arch"></i></div>
+                            <div class="icon"><i class="bi bi-pass"></i></div>
+                            <h4><a href="">Pembuatan Replik</a></h4>
+                            <p>Jawaban yang diucapkan atau diajukan secara tertulis oleh pihak penggugat setelah ia membaca jawaban tergugat atas gugatan penggugat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-pass-fill"></i></div>
+                            <h4><a href="">Pembuatan Duplik</a></h4>
+                            <p>Jawaban yang di ajukan oleh tergugat sebagai bantahan terhadap replik dari penggugat
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <div class="icon-box">
+                            <div class="icon"><i class="bi bi-chat-right-text"></i></div>
                             <h4><a href="">Konseling Hukum</a></h4>
-                            <p>Layanan hukum untuk melindungi korban kekerasan dalam rumah tangga melalui perintah
-                                penahanan atau
-                                perintah perlindungan.</p>
+                            <p>Pelayanan jasa hukum berupa penjelasan, informasi atau petunjuk dan memberikan penyelesaian terhadap permasalahan hukum</p>
                         </div>
                     </div>
 
@@ -305,30 +331,10 @@
 
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="{{ url('public') }}/img/team/team-1.png" class="img-fluid img-team"
-                                    alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                    <a href=""><i class="bi bi-whatsapp"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Gloria Allred</h4>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
-                                <img src="{{ url('public') }}/img/team/team-2.jpeg" class="img-fluid img-team"
+                                <img src="{{ url('public') }}/img/team/1.png" class="img-fluid img-team"
                                     alt="">
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
@@ -338,16 +344,17 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span></span>
+                                <h3>Revi Carliando S.H</h3>
+                                <strong>(Partners)</strong>
+                                <span>Revi Carliando S.H Memulai karir sebagai Pengacara pada tahun 2020, berpengalaman dengan Hukum Keluarga dan sangat concern terhadap pemecahan masalah yang timbul dalam perkara hukum keluarga.</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="300">
                             <div class="member-img">
-                                <img src="{{ url('public') }}/img/team/team-3.jpeg" class="img-fluid img-team"
+                                <img src="{{ url('public') }}/img/team/2.png" class="img-fluid img-team"
                                     alt="">
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
@@ -357,16 +364,17 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Laura Wasser</h4>
-                                <span></span>
+                                <h3>Hifni Muzakki S.H</h3>
+                                <strong>(Managing Partners)</strong>
+                                <span>Hifni Muzakki S.H Memulai karir sebagai Pengacara sejak tahun 2019, dan memiliki pengalaman dari berbagai kasus Hukum Perdata Khusus maupun Hukum Perdata lainnya baik yang sudah di selesaikan maupun sedang berjalan dalam persidangan.  </span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="col">
                         <div class="member" data-aos="fade-up" data-aos-delay="400">
                             <div class="member-img">
-                                <img src="{{ url('public') }}/img/team/team-4.webp" class="img-fluid img-team"
+                                <img src="{{ url('public') }}/img/team/3.png" class="img-fluid img-team"
                                     alt="">
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
@@ -376,8 +384,9 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Raoul Felder</h4>
-                                <span></span>
+                                <h3>Hottua Manalu S.H</h3>
+                                <strong>(Partners)</strong>
+                                <span>Hottua Manalu S.H Memulai Karir sebagai Pengacara pada tahun 2019, berpengalaman sebagai legal drafting handal dan memiliki pengalaman dalam pendampingan dalam Hukum Acara Pidana maupun Hukum Acara Perdata dan Hukum Acara Perdata Khusus.</span>
                             </div>
                         </div>
                     </div>
@@ -390,8 +399,8 @@
         <!-- ======= Clients Section ======= -->
         <section id="clients" class="clients">
             <div class="container" data-aos="zoom-in">
-                <div class="section-title text-center">
-                    <p>Rekanan Kami</p>
+                <div class="section-title">
+                    <h2>Rekanan Kami</h2>
                 </div>
                 <div class="container">
                     <div class="row">
@@ -460,6 +469,129 @@
         @endif
 
 
+        <section id="faq">
+            <div class="container" data-aos="zoom-in">
+                <div class="section-title">
+                    <h2>Ferquently Ask Questions</h2>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div class="accordion" id="regularAccordionRobots">
+
+                            <div class="accordion-item">
+                              <h2 id="regularHeadingFirst" class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#regularCollapseFirst" aria-expanded="true" aria-controls="regularCollapseFirst">
+                                  Bagaimana Kalau Dokumen Hilang?
+                                </button>
+                              </h2>
+                              <div id="regularCollapseFirst" class="accordion-collapse collapse show" aria-labelledby="regularHeadingFirst" data-bs-parent="#regularAccordionRobots">
+                                <div class="accordion-body">
+                                    Apabila ada dokumen yang hilang, LAWFAM FAMILY LAW CONSULTING bisa membantu mengurusi dokumen tersebut melalui duplikat yang di ajukan ke lembaga hukum terkait.
+                                </div>
+                              </div>
+                            </div>
+                          
+                            <div class="accordion-item"> 
+                              <h2 class="accordion-header" id="faq1HeadingSecond">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1CollapseSecond" aria-expanded="false" aria-controls="faq1CollapseSecond">
+                                Bagaimana Jika Pasangan Menolak ?
+                                </button>
+                              </h2>
+                              <div id="faq1CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq1rHeadingSecond" data-bs-parent="#faq1AccordionRobots">
+                                <div class="accordion-body">
+                                    Pada dasarnya perceraian bukan dilandasi oleh kesepakatan atau persetujuan namun menilai alasan dari gugatan perceraian, oleh karena itu klien yang mau menggugat tidak harus sepakat dengan pasangan.
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="accordion-item"> 
+                                <h2 class="accordion-header" id="faq2HeadingSecond">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2CollapseSecond" aria-expanded="false" aria-controls="faq2CollapseSecond">
+                                    Apakah Saya Harus Hadir Sidang ?
+                                  </button>
+                                </h2>
+                                <div id="faq2CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq2HeadingSecond" data-bs-parent="#faq2AccordionRobots">
+                                  <div class="accordion-body">
+                                    Apabila sudah diwakilkan oleh kuasa hukum, klien hanya harus hadir 1-2 kali saja untuk prosesnya, Sedangkan, agenda persidangan lainnya akan ditangani oleh pengacara 
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item"> 
+                                <h2 class="accordion-header" id="faq3HeadingSecond">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3CollapseSecond" aria-expanded="false" aria-controls="faq3CollapseSecond">
+                                    Bagaimana Kalau Pasangan Hilang?
+                                  </button>
+                                </h2>
+                                <div id="faq3CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq3HeadingSecond" data-bs-parent="#faq3AccordionRobots">
+                                  <div class="accordion-body">
+                                    Pasangan hilang ( ghaib) dapat tetap digugat mengikuti domisili penggugat, pengadilan akan memanggil melalui pengumaman koran / mekanisme lainnya. 
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item"> 
+                                <h2 class="accordion-header" id="faq4HeadingSecond">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4CollapseSecond" aria-expanded="false" aria-controls="faq4CollapseSecond">
+                                    Apakah Mungkin Gugatan Saya Ditolak?
+                                  </button>
+                                </h2>
+                                <div id="faq4CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq4HeadingSecond" data-bs-parent="#faq4AccordionRobots">
+                                  <div class="accordion-body">
+                                    Penolakan hanya akan terjadi apabila ditemukan kobohongan, kesalahan informasi atau gagal terbuktinya sebuah tuduhan.
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item"> 
+                                <h2 class="accordion-header" id="faq5HeadingSecond">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5CollapseSecond" aria-expanded="false" aria-controls="faq5CollapseSecond">
+                                    Berapa Lama Proses Perceraian?
+                                  </button>
+                                </h2>
+                                <div id="faq5CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq5HeadingSecond" data-bs-parent="#faq5AccordionRobots">
+                                  <div class="accordion-body">
+                                    Proses perceraian memakan waktu antara 3 -4 bulan tergantung kerumitan, perlawanan dan kondisi pengadilan
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item"> 
+                                <h2 class="accordion-header" id="faq6HeadingSecond">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6CollapseSecond" aria-expanded="false" aria-controls="faq6CollapseSecond">
+                                    Bagaimana Kalau Saya Batal Cerai?
+                                  </button>
+                                </h2>
+                                <div id="faq6CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq6HeadingSecond" data-bs-parent="#faq6AccordionRobots">
+                                  <div class="accordion-body">
+                                    Rujuk masih dapat dialksanakan hingga sesaat sebelum pembacaan putusan dan dapat dicabut kapan saja. 
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item"> 
+                                <h2 class="accordion-header" id="faq7HeadingSecond">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7CollapseSecond" aria-expanded="false" aria-controls="faq7CollapseSecond">
+                                    Apa Akibat Perceraian Saya?
+                                  </button>
+                                </h2>
+                                <div id="faq7CollapseSecond" class="accordion-collapse collapse" aria-labelledby="faq7HeadingSecond" data-bs-parent="#faq7AccordionRobots">
+                                  <div class="accordion-body">
+                                    Akibat hukum adanya perceraian selain hilangnya status suami istri adalah hak asuh, kewarisan dan harta gono gini. 
+                                  </div>
+                                </div>
+                            </div>
+                          
+                          </div>
+                    </div>    
+                </div>
+
+
+            </div>
+        </section>
+
 
     </main><!-- End #main -->
 
@@ -471,7 +603,7 @@
 
                     <div class="col-lg-12 col-md-12">
                         <div class="footer-info">
-                            <img src="{{ url('public') }}/logo/logo-text.png" alt="Law Fam"
+                            <img src="{{ url('public') }}/logo/logo-text.png" alt="{{ $appname ?? 'Law Fam' }}"
                                 style="width: 250px;margin-left:-20px;">
                         </div>
                     </div>
@@ -485,8 +617,8 @@
 
                     <div class="col-lg-4 col-md-6 footer-links">
                         <p>
-                            <strong>Phone:</strong> +62 xxxx xxxx xxxx<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            <strong>Phone:</strong> {{ $phone ?? '+62 xxxx xxxx xxxx' }}<br>
+                            <strong>Email:</strong> {{ $email ?? 'info@example.com' }}<br>
                         </p>
                     </div>
 
@@ -495,7 +627,9 @@
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-whatsapp"></i></a>
+                            <a target="_blank"
+                                href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
+                                    class="bx bxl-whatsapp"></i></a>
                         </div>
                     </div>
 
@@ -512,7 +646,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Law Fam</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>{{ $appname ?? 'Law Fam' }}</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer><!-- End Footer -->

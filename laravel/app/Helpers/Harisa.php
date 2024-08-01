@@ -3,7 +3,7 @@
 use App;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Log;
 use Auth;
 use Cache;
@@ -24,5 +24,15 @@ class Harisa
         fwrite( $ifp, base64_decode( $base64_string  ) );
         fclose( $ifp ); 
         return $output_file; 
+    }
+
+    public static function getSettingByName($name){
+        $value = "";
+        $data = DB::table('settings')->whereRaw("UPPER(name) = '".strtoupper($name)."'")->orderBy('value','asc')->first();   
+        if(!empty($data->id)){
+            $value = $data->value;
+        }
+        return $value;
+
     }
 }

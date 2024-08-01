@@ -54,6 +54,7 @@ class Article extends Controller
    
     public function process()
     {   
+        echo "XXXX";die;
         $postData   = $this->r->post(); 
         $data       = array();
         foreach ($postData as $key => $value) {

@@ -7,3 +7,11 @@
 .sidebar-brand{
     background: #566688 !important;
 }
+
+.error{
+    color: #ff2a2a !important;
+}
+
+html:not([dir=rtl]) .modal-header .btn-close{
+    color: #ffffff00 !important;
+}

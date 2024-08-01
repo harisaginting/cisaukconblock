@@ -24,11 +24,53 @@ class SettingsSeeder extends Seeder
                     'updated_at' => Carbon::now()
                 ],
                 [
-                    'name' => 'contact',
-                    'remarks' => 'contact',
+                    'name' => 'email',
+                    'remarks' => 'email',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
-                ]
+                ],
+                [
+                    'name' => 'phone',
+                    'remarks' => 'phone',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'whatsapp',
+                    'remarks' => 'whatsapp',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'facebook',
+                    'remarks' => 'facebook',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'instagram',
+                    'remarks' => 'instagram',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'linkedin',
+                    'remarks' => 'linkedin',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'address_street',
+                    'remarks' => 'address_street',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'address_district',
+                    'remarks' => 'address_district',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
             ]
         );
     }
