@@ -614,10 +614,10 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 footer-links">
-                        <p>
+                        {{-- <p>
                             Summarecon Mall Bekasi <br>
                             Jawa Barat<br><br>
-                        </p>
+                        </p> --}}
                     </div>
 
                     <div class="col-lg-4 col-md-6 footer-links">
@@ -639,10 +639,10 @@
                     </div>
 
                     <div class="col-lg-12">
-                        <iframe style="border:0; width: 100%; height: 270px; border-radius: 10px;"
+                        {{-- <iframe style="border:0; width: 100%; height: 270px; border-radius: 10px;"
                             src="https://www.google.com/maps?q={{ $address_lat ?? '0' }},{{ $address_lng ?? '0' }}&z=15&output=embed"
                             frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> --}}
                     </div>
 
                 </div>
