@@ -44,6 +44,12 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card-group d-block d-md-flex row">
+                        <div class="card col-md-5 text-white bg-secondary img-fluid d-none d-md-block">
+                            <div class="card-body text-center">
+                                <img width="auto" alt="Gwyn Logo" src="{{ url('public') }}/admin/logo/clear/3.png" style="object-fit: contain;object-position:center;width:100%;" />
+                            </div>
+                        </div>
+                        
                         <div class="card col-md-7 p-4 mb-0">
                             <div class="card-body">
                                 <form id="form-login">
@@ -75,12 +81,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
-
-                        <div class="card col-md-5 text-white bg-secondary">
-                            <div class="card-body text-center">
-                                <img width="auto" alt="Gwyn Logo" src="{{ url('public') }}/admin/logo/clear/3.png" style="object-fit: contain;object-position:center;width:100%;" />
                             </div>
                         </div>
                     </div>

@@ -19,16 +19,12 @@
                  <li class="nav-item"><a class="nav-link" href="forms/select.html"> About Us</a></li>
              </ul>
          </li> --}}
-         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
-                 <svg class="nav-icon">
-                     <use xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-star">
-                     </use>
-                 </svg> Contents <span class="badge badge-sm bg-warning ms-auto">DEV</span></a>
-             <ul class="nav-group-items">
-                 {{-- <li class="nav-item"><a class="nav-link" href="forms/form-control.html"> Banners</a></li> --}}
-                 <li class="nav-item"><a class="nav-link" href="{{ url('gwynadmin') }}/article"> Article</a></li>
-             </ul>
-         </li>
+
+         <li class="nav-item"><a class="nav-link" href="{{ url('gwynadmin') }}/article">
+            <svg class="nav-icon ">
+                <use xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-star">
+                </use>
+            </svg> Article </a></li>
          {{-- 
         <li class="nav-item"><a class="nav-link" href="colors.html">
                  <svg class="nav-icon">

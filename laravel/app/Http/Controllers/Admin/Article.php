@@ -36,6 +36,17 @@ class Article extends Controller
         return view('admin.article.add'); 
     }
 
+
+    public function edit(string $id)
+    {   
+        $article = Articles::find($id);
+        if (empty($article)) {
+            abort(404);
+        }
+
+        return view('admin.article.edit',$article); 
+    }
+
     public function list(Request $request){
         $length         = $request->input('length');
         $start          = $request->input('start');
@@ -54,7 +65,6 @@ class Article extends Controller
    
     public function process()
     {   
-        echo "XXXX";die;
         $postData   = $this->r->post(); 
         $data       = array();
         foreach ($postData as $key => $value) {
@@ -87,7 +97,7 @@ class Article extends Controller
         
 
          if(!empty($data["id_artikel"])){
-            $response =  $this->updateProcess($data["id_artikel"],$model);
+            $response =  $this->update($data["id_artikel"],$model);
          }else{
             $model->created_at         = Carbon::now();
             $model->save();
@@ -102,6 +112,48 @@ class Article extends Controller
          }else{
             return Harisa::apiResponse(401, null, 'not valid request' );
          }
+    }
+
+    public function update()
+    {   
+        $postData   = $this->r->post(); 
+        $data       = array();
+        foreach ($postData as $key => $value) {
+             $data[$value["name"]] = $value["value"];
+        } 
+        $id = !empty($data["id_artikel"]) ? $data["id_artikel"] : null;
+        $model = Articles::find($id);
+        if (empty($model)) {
+            abort(404);
+        }
+        $model->title              = !empty($data["title"]) ? $data["title"] : $model->title;
+        $model->url_key            = !empty($data["url_key"]) ? strtolower(str_replace(" ", "", urldecode($data["url_key"]))) : strtolower(str_replace(" ", "", urldecode($model->url_key))).date('d-m-y');
+        $model->category           = !empty($data["category"]) ? $data["category"] : $model->category;
+        $model->short_description  = !empty($data["short_description"]) ? $data["short_description"] : $model->short_description;
+        $model->content            = !empty($data["content-value"]) ? $data["content-value"] : $model->content;
+        $model->updated_at         = Carbon::now();
+        $model->updated_by         = $this->r->user["uuid"];
+
+        $imageDesktop = null;
+        $imageMobile = null;
+        
+        if (!empty($data["upload-photo-result"])) {
+            $imageBase64 = $data["upload-photo-result"];
+            $imageDesktop = Harisa::base64_to_jpeg($imageBase64,"artikel-".strtolower(str_replace(" ", "", $data["url_key"]))."-desktop.png");
+        }
+
+        if (!empty($data["upload-photo-result-mobile"])) {
+            $imageBase64 = $data["upload-photo-result-mobile"];
+            $imageMobile = Harisa::base64_to_jpeg($imageBase64,"artikel-".strtolower(str_replace(" ", "", $data["url_key"]))."-mobile.png");
+        }
+
+        $model->image_desktop    = !empty($data["upload-photo-result"]) ? $imageDesktop : $model->image_desktop;
+        $model->image_mobile     = !empty($data["upload-photo-result-mobile"]) ? $imageMobile : $model->image_mobile;
+        
+
+        $model->created_at         = Carbon::now();
+        $model->save();
+        return Harisa::apiResponse(200, Articles::whereId($data["id_artikel"])->get(), 'success');
     }
 
 

@@ -5,23 +5,23 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><strong>Add</strong><span class="small ms-1">Article</span></div>
+                <div class="card-header"><strong>Edit</strong><span class="small ms-1">Article</span></div>
                 <div class="card-body">
                     <form class="row" id="form-artikel" method="post" action="{{ url('/') }}/artikel/save">
                         <div class="col-sm-12 form-group">
                             <label><strong>Title</strong></label>
-                            <input type="hidden" name="id_artikel" id="id_artikel">
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <input type="hidden" name="id_artikel" id="id_artikel" value="{{ $id }}">
+                            <input type="text" name="title" id="title" class="form-control" required value="{{ $title }}">
                         </div>
 
                         <div class="col-sm-12 form-group">
                             <label><strong>Url key</strong></label>
-                            <input type="text" name="url_key" id="url_key" class="form-control" required>
+                            <input type="text" name="url_key" id="url_key" value="{{ $url_key }}" class="form-control" required>
                         </div>
 
                         <div class="col-sm-12 form-group">
                             <label><strong>Description</strong></label>
-                            <textarea type="text" name="short_description" id="short_description" class="form-control" required maxlength="300"></textarea>
+                            <textarea type="text" name="short_description" id="short_description" class="form-control" required maxlength="300">{{ $short_description }}</textarea>
                         </div>
 
 
@@ -29,7 +29,7 @@
                             <label><strong>Category</strong></label>
                             <select id="category" name="category" class="form-control filter_data_anggota">
                                 <option value="">Semua Kategori</option>
-                                <option value="GENERAL">GENERAL</option>
+                                <option value="GENERAL" selected>GENERAL</option>
                             </select>
                         </div>
 
@@ -60,7 +60,7 @@
                         <div class="col-sm-12 mt-4">
                             <div id="summernote"></div>
                         </div>
-                        <input type="hidden" name="content-value" id="content-value" value="">
+                        <input type="hidden" name="content-value" id="content-value">
                     </form>
                     <div class="row">
                         <div class="col-sm-12 text-center pt-2">
@@ -86,7 +86,7 @@
 
             saveArtikel = async () => {
                 var formData = JSON.stringify($("#form-artikel").serializeArray());
-                return await fetch("{{ route('admin-article-save') }}", {
+                return await fetch("{{ route('admin-article-update') }}", {
                         method: 'POST', // *GET, POST, PUT, DELETE, etc.
                         mode: 'cors',
                         headers: {
@@ -116,18 +116,18 @@
                     $("#upload-photo-result").val(resp);
                     });
                     if($("#form-artikel").valid()){
-                      
                         $("#loader").removeClass("hidden");
                         saveArtikel().then((data)=>{
                             $("#loader").addClass("hidden");
                             if(data.status == 200){
-                                alert("data berhasil ditambahkan");
+                                alert("data berhasil diupdate");
                                 location.reload();
                                 window.location.href = "{{ route('admin-article') }}";
                             }else{
                                 
                             }
                         });    
+                        
                         
                     }
                 });

@@ -55,6 +55,15 @@ class Setting extends Controller
                 case 'address_district':
                     $setting['address_district'] = $value['value'];
                     break;
+                case 'address_lat':
+                    $setting['address_lat'] = $value['value'];
+                    break;
+                case 'address_lng':
+                    $setting['address_lng'] = $value['value'];
+                    break;
+                case 'google_analytic_tag':
+                    $setting['google_analytic_tag'] = $value['value'];
+                    break;
                 default:
                     break;
             }
@@ -103,11 +112,13 @@ class Setting extends Controller
         }
 
         if (!empty($data["linkedin"])) {
-            if ($data["linkedin"] != "") {
                 $linkedin = Settings::where('name', 'linkedin')->first();
                 $linkedin->value = $data["linkedin"];
                 $linkedin->save();
-            }
+        }else{
+            $linkedin = Settings::where('name', 'linkedin')->first();
+            $linkedin->value = "";
+            $linkedin->save();
         }
 
         if (!empty($data["facebook"])) {
@@ -116,14 +127,20 @@ class Setting extends Controller
                 $facebook->value = $data["facebook"];
                 $facebook->save();
             }
+        }else{
+            $facebook = Settings::where('name', 'facebook')->first();
+            $facebook->value = "";
+            $facebook->save();
         }
 
-        if (!empty($data["instagram"])) {
-            if ($data["instagram"] != "") {
+        if (isset($data["instagram"])) {
                 $instagram = Settings::where('name', 'instagram')->first();
                 $instagram->value = $data["instagram"];
                 $instagram->save();
-            }
+        }else{
+                $instagram = Settings::where('name', 'instagram')->first();
+                $instagram->value = "";
+                $instagram->save();
         }
 
         if (!empty($data["address_street"])) {
@@ -138,6 +155,30 @@ class Setting extends Controller
             if ($data["address_district"] != "") {
                 $address_district = Settings::where('name', 'address_district')->first();
                 $address_district->value = $data["address_district"];
+                $address_district->save();
+            }
+        }
+        
+        if (!empty($data["address_lat"])) {
+            if ($data["address_lat"] != "") {
+                $address_district = Settings::where('name', 'address_lat')->first();
+                $address_district->value = $data["address_lat"];
+                $address_district->save();
+            }
+        }
+        
+        if (!empty($data["address_lng"])) {
+            if ($data["address_lng"] != "") {
+                $address_district = Settings::where('name', 'address_lng')->first();
+                $address_district->value = $data["address_lng"];
+                $address_district->save();
+            }
+        }
+
+        if (!empty($data["google_analytic_tag"])) {
+            if ($data["google_analytic_tag"] != "") {
+                $address_district = Settings::where('name', 'google_analytic_tag')->first();
+                $address_district->value = $data["google_analytic_tag"];
                 $address_district->save();
             }
         }

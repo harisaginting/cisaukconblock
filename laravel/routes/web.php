@@ -17,4 +17,4 @@ use App\Http\Controllers\Landing;
 */
 
 Route::get('/', [Landing::class, 'index'])->name('landing');
-// Route::get('/', [Auth::class, 'soon'])->name('landing-soon');
+Route::get('/articles/{id}', [Landing::class, 'article'])->name('article');

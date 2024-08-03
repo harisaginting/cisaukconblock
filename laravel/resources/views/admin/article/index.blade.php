@@ -88,10 +88,10 @@
                         },
                         {
                             mRender: function(data, type, obj) {
-                                return "<a style='margin-left:5px;' class='btn btn-info btn-sm btn-edit' href='{{ env('APP_URL_FRONTEND') }}/artikel/" +
+                                return "<a style='margin-left:5px;' class='btn btn-info btn-sm btn-edit' href='{{ url('/') }}/articles/" +
                                     obj.url_key +
-                                    "' ><i class='fa fa-eye'></i></a><a style='margin-left:5px;' class='btn btn-warning btn-sm btn-edit' href='" +
-                                    base_url + "/artikel/edit/" + obj.id +
+                                    "' target='_blank'><i class='fa fa-eye'></i></a><a style='margin-left:5px;' class='btn btn-warning btn-sm btn-edit' href='" +
+                                    base_url + "/article/edit/" + obj.id +
                                     "' ><i class='fa fa-edit'></i></a>"
                             }
                         },

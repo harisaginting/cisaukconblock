@@ -53,6 +53,12 @@
                                     <input type="text" name="instagram" id="instagram" placeholder="instagram username"
                                         class="form-control" value="{{ $setting['instagram'] ?? '' }}">
                                 </div>
+                                
+                                <div class="col-sm-12 form-group mt-2">
+                                    <label><i class="fa fa-google"></i> Google Analytic Tag</label>
+                                    <input type="text" name="google_analytic_tag" id="google_analytic_tag" placeholder="G-tag analytic"
+                                        class="form-control" value="{{ $setting['google_analytic_tag'] ?? '' }}">
+                                </div>
                             </div>
 
                             <div class="row mt-5">
@@ -72,6 +78,20 @@
                                         <input type="text" name="address_district" id="address_district"
                                             placeholder="address province / district" class="form-control"
                                             value="{{ $setting['address_district'] ?? '' }}">
+                                    </div>
+                                    
+                                    <div class="col-sm-12 form-group mt-2">
+                                        <label><i class="fa fa-home"></i> Latitude</label>
+                                        <input type="text" name="address_lat" id="address_lat"
+                                            placeholder="address latitude" class="form-control"
+                                            value="{{ $setting['address_lat'] ?? '' }}">
+                                    </div>
+
+                                    <div class="col-sm-12 form-group mt-2">
+                                        <label><i class="fa fa-home"></i> Latitude</label>
+                                        <input type="text" name="address_lng" id="address_lng"
+                                            placeholder="address longitude" class="form-control"
+                                            value="{{ $setting['address_lng'] ?? '' }}">
                                     </div>
                                 </div>
                             </div>

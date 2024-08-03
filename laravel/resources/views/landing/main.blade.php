@@ -28,6 +28,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Roboto|Montserrat">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NB13PMMS1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ $gtag ?? '' }}');
+    </script>
+
     <!-- Vendor CSS Files -->
     <link href="{{ url('public') }}/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="{{ url('public') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +68,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="header fixed-top ">
         <div class="container d-flex align-items-center justify-content-lg-between">
 
             {{-- <h1 class="logo me-auto me-lg-0"><a href="index.html">HK<span>.</span></a></h1> --}}
@@ -335,13 +345,7 @@
                         <div class="member" data-aos="fade-up" data-aos-delay="200">
                             <div class="member-img">
                                 <img src="{{ url('public') }}/img/team/1.png" class="img-fluid img-team"
-                                    alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                    alt="Revi Carliando S.H">
                             </div>
                             <div class="member-info">
                                 <h3>Revi Carliando S.H</h3>
@@ -355,13 +359,7 @@
                         <div class="member" data-aos="fade-up" data-aos-delay="300">
                             <div class="member-img">
                                 <img src="{{ url('public') }}/img/team/2.png" class="img-fluid img-team"
-                                    alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                    alt="Hifni Muzakki S.H">
                             </div>
                             <div class="member-info">
                                 <h3>Hifni Muzakki S.H</h3>
@@ -375,13 +373,7 @@
                         <div class="member" data-aos="fade-up" data-aos-delay="400">
                             <div class="member-img">
                                 <img src="{{ url('public') }}/img/team/3.png" class="img-fluid img-team"
-                                    alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
+                                    alt="Hottua Manalu S.H">
                             </div>
                             <div class="member-info">
                                 <h3>Hottua Manalu S.H</h3>
@@ -467,7 +459,6 @@
                 </div>
             </section><!-- End Aritcle Section -->
         @endif
-
 
         <section id="faq">
             <div class="container" data-aos="zoom-in">
@@ -624,9 +615,9 @@
 
                     <div class="col-lg-4 col-md-6 footer-links">
                         <div class="social-links mt-0">
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="https://www.facebook.com/{{ $facebook }}/?locale=id_ID" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://www.instagram.com/{{ $instagram }}/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/{{ $linkedin }}/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                             <a target="_blank"
                                 href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
                                     class="bx bxl-whatsapp"></i></a>
@@ -635,7 +626,7 @@
 
                     <div class="col-lg-12">
                         <iframe style="border:0; width: 100%; height: 270px; border-radius: 10px;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.127766046518!2d106.9999951!3d-6.226509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c71cf814d97%3A0xd22a5d56809f070a!2sSummarecon%20Mall%20Bekasi!5e0!3m2!1sid!2sid!4v1694872326513!5m2!1sid!2sid"
+                            src="https://www.google.com/maps?q={{ $address_lat ?? '0' }},{{ $address_lng ?? '0' }}&z=15&output=embed"
                             frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                             allowfullscreen></iframe>
                     </div>

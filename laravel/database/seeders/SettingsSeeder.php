@@ -71,6 +71,24 @@ class SettingsSeeder extends Seeder
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ],
+                [
+                    'name' => 'address_lat',
+                    'remarks' => 'address_lat',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'address_lng',
+                    'remarks' => 'address_lng',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
+                [
+                    'name' => 'google_analytic_tag',
+                    'remarks' => 'google_analytic_tag',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ],
             ]
         );
     }

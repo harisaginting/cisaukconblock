@@ -20,6 +20,6 @@ class UsersSeeder extends Seeder
             'super-admin',
             'username' => 'admin'
             ]);
-        // password : permatatambun
+        // password : admin
     }
 }

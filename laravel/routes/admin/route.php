@@ -24,6 +24,8 @@ Route::controller(Auth::class)->group(function () {
         Route::get('/article', 'index')->name('admin-article');
         Route::get('/article/list', 'list')->name('admin-article-list');
         Route::get('/article/add', 'add')->name('admin-article-add');
+        Route::get('/article/edit/{id}', 'edit')->name('admin-article-edit');
+        Route::middleware(['middleware' => 'harisa-auth-api'])->post('/article/update', 'update')->name('admin-article-update');
         Route::middleware(['middleware' => 'harisa-auth-api'])->post('/article/add', 'process')->name('admin-article-save');
     });
    
