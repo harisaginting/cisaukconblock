@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 
 Route::prefix('v1')->group(function(){ 
 	 Route::group(['middleware' => 'harisa-auth-api'], function(){
-	 	Route::get('user', 'UserController@get');
-	 	Route::post('user', 'UserController@update');
+	 	// Route::get('user', 'UserController@get');
+	 	// Route::post('user', 'UserController@update');
 	 });
 });
