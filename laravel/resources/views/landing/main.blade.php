@@ -29,13 +29,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Roboto|Montserrat">
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NB13PMMS1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PZ8H5F0FH"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{{ $gtag ?? "G-4PZ8H5F0FH" }}');
+    gtag('config', 'G-4PZ8H5F0FH');
     </script>
 
     <!-- Vendor CSS Files -->
