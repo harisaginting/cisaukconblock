@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ $appname ?? 'Law Fam' }}</title>
+    <title>{{ $appname ?? 'Law Family Consulting' }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <meta property="og:title" content={{ $appname ?? 'Law Fam' }}>
-    <meta property="og:site_name" content=Law Family Consulting>
+    <meta property="og:title" content={{ $appname ?? 'Law Family Consulting' }}>
+    <meta property="og:site_name" content=Law Family Consultingily Consulting>
     <meta property="og:url" content=https://lawfamilyconsulting.com />
     <meta property="og:description" content=Spesialis Perkara Hukum Keluarga>
     <meta property="og:type" content=business.business>
@@ -608,7 +608,7 @@
 
                     <div class="col-lg-12 col-md-12">
                         <div class="footer-info">
-                            <img src="{{ url('public') }}/logo/logo-text.png" alt="{{ $appname ?? 'Law Fam' }}"
+                            <img src="{{ url('public') }}/logo/logo-text.png" alt="{{ $appname ?? 'Law Family Consulting' }}"
                                 style="width: 250px;margin-left:-20px;">
                         </div>
                     </div>
@@ -651,7 +651,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>{{ $appname ?? 'Law Fam' }}</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>{{ $appname ?? 'Law Family Consulting' }}</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer><!-- End Footer -->
