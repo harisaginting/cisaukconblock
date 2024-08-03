@@ -141,6 +141,10 @@ h6 {
   padding: 15px 0;
 }
 
+.header{
+  background-color: #666666f0;
+}
+
 #header.header-scrolled,
 #header.header-inner-pages {
   background: rgba(0, 0, 0, 0.8);
@@ -1137,6 +1141,14 @@ section {
   .counts .image img {
     max-width: 100%;
   }
+
+  .hero-bottom{
+    bottom: -60px;
+    padding-right: 20px;
+  }
+  .hero-logo{
+    padding-bottom: 20px;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1270,7 +1282,7 @@ section {
 }
 
 .img-team{
-  min-height: 420px !important;
+  min-height: 250px !important;
   max-height: 420px !important;
 }
 
