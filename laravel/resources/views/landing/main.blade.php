@@ -35,7 +35,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{{ $gtag ?? '' }}');
+    gtag('config', '{{ $gtag ?? "G-4PZ8H5F0FH" }}');
     </script>
 
     <!-- Vendor CSS Files -->
