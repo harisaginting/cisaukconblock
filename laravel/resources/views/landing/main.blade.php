@@ -341,21 +341,7 @@
 
                 <div class="row">
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="200">
-                            <div class="member-img">
-                                <img src="{{ url('public') }}/img/team/1.png" class="img-fluid img-team"
-                                    alt="Revi Carliando S.H">
-                            </div>
-                            <div class="member-info">
-                                <h3>Revi Carliando S.H</h3>
-                                <strong>(Partners)</strong>
-                                <span>Revi Carliando S.H Memulai karir sebagai Pengacara pada tahun 2020, berpengalaman dengan Hukum Keluarga dan sangat concern terhadap pemecahan masalah yang timbul dalam perkara hukum keluarga.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="300">
                             <div class="member-img">
                                 <img src="{{ url('public') }}/img/team/2.png" class="img-fluid img-team"
@@ -369,16 +355,44 @@
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="200">
+                            <div class="member-img">
+                                <img src="{{ url('public') }}/img/team/1.png" class="img-fluid img-team"
+                                    alt="Revi Carliando S.H">
+                            </div>
+                            <div class="member-info">
+                                <h3>Revi Carliando S.H</h3>
+                                <strong>(Partners)</strong>
+                                <span>Revi Carliando S.H Memulai karir sebagai Pengacara pada tahun 2020, berpengalaman dengan Hukum Keluarga dan sangat concern terhadap pemecahan masalah yang timbul dalam perkara hukum keluarga.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
                         <div class="member" data-aos="fade-up" data-aos-delay="400">
                             <div class="member-img">
                                 <img src="{{ url('public') }}/img/team/3.png" class="img-fluid img-team"
-                                    alt="Hottua Manalu S.H">
+                                    alt="Albert Timbul Brilian S.H">
                             </div>
                             <div class="member-info">
-                                <h3>Hottua Manalu S.H</h3>
-                                <strong>(Partners)</strong>
-                                <span>Hottua Manalu S.H Memulai Karir sebagai Pengacara pada tahun 2019, berpengalaman sebagai legal drafting handal dan memiliki pengalaman dalam pendampingan dalam Hukum Acara Pidana maupun Hukum Acara Perdata dan Hukum Acara Perdata Khusus.</span>
+                                <h3 style="font-size: 1.27rem !important">Albert Timbul Brilian S.H</h3>
+                                <strong>(Associate)</strong>
+                                <span>Albert Timbul Brilian S.H, Memulai Karir sebagai Pengacara pada tahun 2021, berpengalaman sebagai legal drafting handal dan memiliki pengalaman dalam pendampingan dalam Hukum Acara Pidana maupun Hukum Acara Perdata dan Hukum Acara Perdata Khusus.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="400">
+                            <div class="member-img">
+                                <img src="{{ url('public') }}/img/team/4.png" class="img-fluid img-team"
+                                    alt="Maringan Lumbantoruan S.H">
+                            </div>
+                            <div class="member-info">
+                                <h3 style="font-size: 1.27rem !important">Maringan Lumbantoruan S.H</h3>
+                                <strong>(Associate)</strong>
+                                <span>Maringan Lumbantoruan S.H, Memulai Karir sebagai Pengacara pada tahun 2021, berpengalaman sebagai legal drafting handal dan memiliki pengalaman dalam pendampingan dalam Hukum Acara Pidana maupun Hukum Acara Perdata dan Hukum Acara Perdata Khusus.</span>
                             </div>
                         </div>
                     </div>
@@ -450,9 +464,9 @@
                     </div>
 
                     @if ($articlemore === true)
-                        <div class="col-lg-12 text-center">
+                        {{-- <div class="col-lg-12 text-center">
                             <a href="{{ url('/articles') }}" class="btn btn-warning btn-sm">Lihat artikel lainnya</a>
-                        </div>
+                        </div> --}}
                     @else
                     @endif
 
