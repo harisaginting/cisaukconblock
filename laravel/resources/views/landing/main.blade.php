@@ -91,7 +91,7 @@
             </nav><!-- .navbar -->
 
             <a target="_blank"
-                href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"
+                href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '+6282258191306' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"
                 class="get-started-btn scrollto">Konsultasi</a>
 
         </div>
@@ -323,7 +323,7 @@
                 <div class="text-center">
                     <h3>KONSULTASIKAN MASALAH ANDA</h3>
                     <a class="cta-btn" target="_blank"
-                        href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
+                        href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '6282258191306' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
                             class="bi bi-whatsapp"></i></a>
                 </div>
 
@@ -622,8 +622,8 @@
 
                     <div class="col-lg-4 col-md-6 footer-links">
                         <p>
-                            <strong>Phone:</strong> {{ $phone ?? '+62 xxxx xxxx xxxx' }}<br>
-                            <strong>Email:</strong> {{ $email ?? 'info@example.com' }}<br>
+                            <strong>Phone:</strong> {{ $phone ?? '082258191306' }}<br>
+                            <strong>Email:</strong> {{ $email ?? 'Lawfamilyconsulting@gmail.com' }}<br>
                         </p>
                     </div>
 
@@ -633,7 +633,7 @@
                             <a href="https://www.instagram.com/{{ $instagram }}/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
                             <a href="https://www.linkedin.com/in/{{ $linkedin }}/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                             <a target="_blank"
-                                href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
+                                href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '6282258191306' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
                                     class="bx bxl-whatsapp"></i></a>
                         </div>
                     </div>
@@ -658,7 +658,7 @@
 
     <div id="preloader"></div>
     <a target="_blank"
-        href="https://api.whatsapp.com/send/?phone=628111500998&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"
+        href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '6282258191306' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"
         class="back-to-top d-flex align-items-center justify-content-center"><i class="bx bxl-whatsapp"></i></a>
     <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bx bxl-whatsapp"></i></a> -->
 
