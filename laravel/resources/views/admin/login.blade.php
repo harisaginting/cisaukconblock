@@ -1,219 +1,209 @@
-<!DOCTYPE html><!--
-    * CoreUI - Free Bootstrap Admin Template
-    * @version v4.2.2
-    * @link https://coreui.io/product/free-bootstrap-admin-template/
-    * Copyright (c) 2023 creativeLabs Łukasz Holeczek
-    * Licensed under MIT (https://github.com/coreui/coreui-free-bootstrap-admin-template/blob/main/LICENSE)
-    -->
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
 <head>
-    <base href="./">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>GWYN ADMIN</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('public') }}/admin/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('public') }}/admin/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('public') }}/admin/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{ url('public') }}/admin/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Vendors styles-->
-    <link rel="stylesheet" href="{{ url('public') }}/admin/vendors/simplebar/css/simplebar.css">
-    <link rel="stylesheet" href="{{ url('public') }}/admin/css/vendors/simplebar.css">
-    <!-- Main styles for this application-->
-    <link href="{{ url('public') }}/admin/css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/jqueryvalidation.min.js"></script>
-    <script type="text/javascript" src="{{ url('public') }}/admin/vendors/bootbox.min.js"></script>
-    <script type="text/javascript">
-        const base_url          = "{{url('/')}}";
-        const customer_token    = localStorage.getItem('_token');
-        const global            = $(document);
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Login - {{ $settings['name'] ?? 'Laravel App' }}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Vite Assets -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card-group d-block d-md-flex row">
-                        <div class="card col-md-5 text-white bg-secondary img-fluid d-none d-md-block">
-                            <div class="card-body text-center">
-                                <img width="auto" alt="Gwyn Logo" src="{{ url('public') }}/admin/logo/clear/3.png" style="object-fit: contain;object-position:center;width:100%;" />
+<body class="h-full">
+    <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Logo and Title -->
+            <div class="text-center">
+                <img class="mx-auto h-12 w-auto" src="{{ asset('logo/logo.png') }}" alt="{{ $settings['name'] ?? 'Laravel App' }}">
+                <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+                    Sign in to your account
+                </h2>
+                <p class="mt-2 text-sm text-gray-600">
+                    Welcome back! Please enter your credentials to continue.
+                </p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="mt-8 space-y-6" id="form-login">
+                <div class="space-y-4">
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="form-label">Username</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
                             </div>
+                            <input id="username" name="username" type="text" autocomplete="username" required 
+                                class="form-input pl-10" placeholder="Enter your username">
                         </div>
-                        
-                        <div class="card col-md-7 p-4 mb-0">
-                            <div class="card-body">
-                                <form id="form-login">
-                                    <h1>Login</h1>
-                                    <p class="text-medium-emphasis">Sign In to your account</p>
-                                    <div class="input-group mb-3"><span class="input-group-text">
-                                            <svg class="icon">
-                                                <use
-                                                    xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-user">
-                                                </use>
-                                            </svg></span>
-                                        <input class="form-control" id="username" name="username" autocomplete="none"
-                                            type="text" placeholder="Username">
-                                    </div>
-                                    <div class="input-group mb-4"><span class="input-group-text">
-                                            <svg class="icon">
-                                                <use
-                                                    xlink:href="{{ url('public') }}/admin/vendors/@coreui/icons/svg/free.svg#cil-lock-locked">
-                                                </use>
-                                            </svg></span>
-                                        <input class="form-control" id="password" name="password" autocomplete="none"
-                                            type="password" placeholder="Password">
-                                    </div>
-                                    <div class="alert alert-danger alert-block col-12 d-none" id="errLogin"></div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button id="btn-login" class="btn btn-primary px-4"
-                                                type="submit">Login</button>
-                                        </div>
-                                    </div>
-                                </form>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="form-label">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                                </svg>
                             </div>
+                            <input id="password" name="password" type="password" autocomplete="current-password" required 
+                                class="form-input pl-10" placeholder="Enter your password">
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- Error Message -->
+                <div id="errLogin" class="alert-error hidden">
+                    <div class="flex">
+                        <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                        <div class="ml-3">
+                            <p class="text-sm" id="error-message"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit" id="btn-login" 
+                        class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-primary-500 group-hover:text-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        Sign in
+                    </button>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="text-center">
+                    <p class="text-xs text-gray-500">
+                        © {{ date('Y') }} {{ $settings['name'] ?? 'Laravel App' }}. All rights reserved.
+                    </p>
+                </div>
+            </form>
         </div>
     </div>
-    <!-- CoreUI and necessary plugins-->
-    <script src="{{ url('public') }}/admin/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
-    <script src="{{ url('public') }}/admin/vendors/simplebar/js/simplebar.min.js"></script>
-    <script></script>
 
-</body>
-<script type="text/javascript">
-    const f_username = $("#username");
-    const f_password = $("#password");
-    class Login {
-        constructor() {}
+    <script>
+        class Login {
+            constructor() {
+                this.username = () => document.getElementById('username').value;
+                this.password = () => document.getElementById('password').value;
+            }
 
-        setToken(token) {
-            this.token = token();
-        }
+            async login(username, password) {
+                const data = {
+                    username: username,
+                    password: password
+                };
 
-        getToken(token) {
-            return this.token;
-        }
+                try {
+                    const response = await fetch("{{ route('admin-login-process') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify(data)
+                    });
 
-        username = () => {
-            return f_username.val();
-        }
-        password = () => {
-            return f_password.val();
-        }
-
-        login = async (username, password) => {
-            let data = {
-                "username": username,
-                "password": password
-            };
-            return await fetch("{{ route('admin-login-process') }}", {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    referrerPolicy: 'no-referrer',
-                    body: JSON.stringify(data)
-                }).then(r =>
-                    r.json())
-                .then(data => {
-                    return data;
-                })
-                .catch(error => {
+                    return await response.json();
+                } catch (error) {
                     console.error('Error:', error);
-                });
+                    return { status: 500, message: 'Network error occurred' };
+                }
+            }
+
+            showError(message) {
+                const errorDiv = document.getElementById('errLogin');
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = message;
+                errorDiv.classList.remove('hidden');
+            }
+
+            hideError() {
+                const errorDiv = document.getElementById('errLogin');
+                errorDiv.classList.add('hidden');
+            }
+
+            setLoading(loading) {
+                const button = document.getElementById('btn-login');
+                const inputs = document.querySelectorAll('input');
+                
+                if (loading) {
+                    button.disabled = true;
+                    button.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Signing in...
+                    `;
+                    inputs.forEach(input => input.disabled = true);
+                } else {
+                    button.disabled = false;
+                    button.innerHTML = `
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-primary-500 group-hover:text-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                        Sign in
+                    `;
+                    inputs.forEach(input => input.disabled = false);
+                }
+            }
         }
-        
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = new Login();
-        const submitForm = () => {
-            if ($("#form-login").valid()) {
-                form.login(form.username(), form.password()).then((data) => {
-                    f_username.attr("readOnly", true);
-                    f_password.attr("readOnly", true);
-                    if (data.status == 200) {
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = new Login();
+            const loginForm = document.getElementById('form-login');
+
+            const submitForm = async (e) => {
+                e.preventDefault();
+                
+                const username = form.username();
+                const password = form.password();
+
+                if (!username || !password) {
+                    form.showError('Please enter both username and password');
+                    return;
+                }
+
+                form.hideError();
+                form.setLoading(true);
+
+                try {
+                    const data = await form.login(username, password);
+                    
+                    if (data.status === 200) {
                         localStorage.setItem('_token', data.data.token);
                         window.location.href = "{{ route('admin') }}";
-                        // alert("selamat datang " + data.data.user.nama);
                     } else {
-                        m = "username atau password kamu salah";
-                        if (data.message) {
-                            m = data.message;
-                        }
-                        f_username.attr("readOnly", false);
-                        f_password.attr("readOnly", false);
-                        $("#errLogin").removeClass("d-none");
-                        $("#errLogin").text(m);
+                        const message = data.message || 'Username or password is incorrect';
+                        form.showError(message);
                     }
-                });
-            }
-        }
-        $(document).on("click", "#btn-login", (e) => {
-            e.preventDefault();
-            submitForm();
+                } catch (error) {
+                    form.showError('An error occurred. Please try again.');
+                } finally {
+                    form.setLoading(false);
+                }
+            };
+
+            loginForm.addEventListener('submit', submitForm);
         });
-        $(document).on("submit", "#form-login", (e) => {
-            e.preventDefault();
-            submitForm();
-        });
-    });
-</script>
-
-<script type="text/javascript">
-    var CheckAuth = function () {
-    validateToken = async(token) =>{
-          return await fetch(base_url+"/api/validate-token/"+token, {
-            method      : 'GET', // *GET, POST, PUT, DELETE, etc.
-            mode        : 'cors', 
-            referrerPolicy: 'no-referrer'
-          }).then(r => 
-          r.json())
-          .then(data => {
-            return data;
-          })
-            .catch(error => {
-              console.error('Error:', error);
-          });
-       }
-      return {
-          init: function() { 
-            let token = localStorage.getItem('_token');
-            if (token === "" || token === null) {
-              console.log("no auth");
-            }else{
-              validateToken(token).then((data)=>{
-                $("#loader").addClass("hidden");
-                  if(data.status !== 200){
-                    console.log("no auth");
-                  }else{
-                    console.log("token valid");
-                    window.location.href = "{{route('admin')}}";
-                  }
-              });  
-            }
-          }
-      };
-
-  }();
-
-  jQuery(document).ready(function() {
-      CheckAuth.init();
-  });  
-  </script>
-
+    </script>
+</body>
 </html>

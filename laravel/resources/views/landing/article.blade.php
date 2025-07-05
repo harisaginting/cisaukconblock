@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>{{ $app['appname'] ?? 'Law Fam' }}</title>
+    <title>{{ isset($settings['name']) ? $settings['name'] : 'Law Fam' }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <meta property="og:title" content={{ $app['appname'] ?? 'Law Fam' }}>
+    <meta property="og:title" content="{{ isset($settings['name']) ? $settings['name'] : 'Law Fam' }}">
     <meta property="og:site_name" content=Law Family Consulting>
     <meta property="og:url" content=https://lawfamilyconsulting.com />
     <meta property="og:description" content=Spesialis Perkara Hukum Keluarga>
@@ -134,7 +134,7 @@
 
                     <div class="col-lg-12 col-md-12">
                         <div class="footer-info">
-                            <img src="{{ url('public') }}/logo/logo-text.png" alt="{{ $app['appname'] ?? 'Law Fam' }}"
+                            <img src="{{ url('public') }}/logo/logo-text.png" alt="{{ isset($settings['name']) ? $settings['name'] : 'Law Fam' }}"
                                 style="width: 250px;margin-left:-20px;">
                         </div>
                     </div>
@@ -155,9 +155,9 @@
 
                     <div class="col-lg-4 col-md-6 footer-links">
                         <div class="social-links mt-0">
-                            <a href="https://www.facebook.com/{{ $app['facebook'] }}/?locale=id_ID" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
-                            <a href="https://www.instagram.com/{{ $app['instagram'] }}/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/{{ $app['linkedin'] }}/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                            <a href="https://www.facebook.com/{{ $settings['facebook'] ?? '' }}/?locale=id_ID" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://www.instagram.com/{{ isset($settings['instagram']) ? $settings['instagram'] : '' }}/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/{{ isset($settings['linkedin']) ? $settings['linkedin'] : '' }}/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                             <a target="_blank"
                                 href="https://api.whatsapp.com/send/?phone={{ $whatsapp ?? '' }}&text=Halo+Saya+ingin+konsultasi+dengan+Advokat&type=phone_number&app_absent=0"><i
                                     class="bx bxl-whatsapp"></i></a>
@@ -177,7 +177,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>{{ $app['appname'] ?? 'Law Fam' }}</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>{{ isset($settings['name']) ? $settings['name'] : 'Law Fam' }}</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer><!-- End Footer -->

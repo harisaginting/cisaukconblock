@@ -5,113 +5,137 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Settings;
 use App\Models\Articles;
-use Illuminate\Support\Facades\DB;
-use App\Helpers\Harisa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\View\View;
 
 class Landing extends Controller
 {
-
-    public function index()
+    /**
+     * Show main landing page
+     */
+    public function index(): View
     {   
-        $appname = "";
-        $email = $phone = "";
-        $whatsapp = $facebook = "";
-        $instagram = $linkedin = "";
-        $address_district = $address_street = $address_lat = $address_lng = $gtag = "";
+        // Get settings with caching
+        $settings = Cache::remember('landing.settings', 360, function () {
+            return Settings::getMultiple([
+                'name', 'email', 'phone', 'whatsapp', 'facebook', 
+                'instagram', 'linkedin', 'address_district', 'address_street', 
+                'address_lat', 'address_lng', 'google_analytic_tag'
+            ]);
+        });
 
-        $qappname = Settings::select('value')->where('name', 'name')->first();
-        $qemail = Settings::select('value')->where('name', 'email')->first();
-        $qphone = Settings::select('value')->where('name', 'phone')->first();
-        $qwhatsapp = Settings::select('value')->where('name', 'whatsapp')->first();
-        $qfacebook = Settings::select('value')->where('name', 'facebook')->first();
-        $qinsragram = Settings::select('value')->where('name', 'instagram')->first();
-        $qlinkedin = Settings::select('value')->where('name', 'linkedin')->first();
-        $qaddress_district = Settings::select('value')->where('name', 'address_district')->first();
-        $qaddress_street = Settings::select('value')->where('name', 'address_street')->first();
-        $qaddress_lat = Settings::select('value')->where('name', 'address_lat')->first();
-        $qaddress_lng = Settings::select('value')->where('name', 'address_lng')->first();
-        $qgtag = Settings::select('value')->where('name', 'google_analytic_tag')->first();
-        if (!empty($qappname)) {
-            $appname = Harisa::getSettingByName('name');    
-        }
-        if (!empty($qemail)) {
-            $email = $qemail->value;
-        }
-        if (!empty($qphone)) {
-            $phone = $qphone->value;
-        }
-        if (!empty($qwhatsapp)) {
-            $whatsapp = $qwhatsapp->value;
-        }
-        if (!empty($qfacebook)) {
-            $facebook = $qfacebook->value;
-        }
-        if (!empty($qinsragram)) {
-            $insragram = $qinsragram->value;
-        }
-        if (!empty($qlinkedin)) {
-            $linkedin = $qlinkedin->value;
-        }
-        if (!empty($qaddress_district)) {
-            $address_district = $qaddress_district->value;
-        }
-        if (!empty($qaddress_street)) {
-            $address_street = $qaddress_street->value;
-        }
-        if (!empty($qaddress_lat)) {
-            $address_lat = $qaddress_lat->value;
-        }
-        if (!empty($qaddress_lng)) {
-            $address_lng = $qaddress_lng->value;
-        }
-        if (!empty($qgtag)) {
-            $gtag = $qgtag->value;
-        }
-        
+        // Get recent articles with caching
+        $articles = Cache::remember('landing.articles', 1800, function () {
+            return Articles::published()
+                ->select('*')
+                ->orderBy('updated_at', 'desc')
+                ->limit(4)
+                ->get();
+        });
 
-        $article     = Articles::select("*", DB::raw("updated_at AS publish_at "))->orderBy("updated_at","desc")->limit(4)->get();
-        $tarticle     = Articles::count();
-    	$articlemore = false;
-    	if ($tarticle > 4) {
-    		$articlemore = true;
-    	}
-        return view('landing.main',compact('appname','email','phone','whatsapp','facebook','instagram','linkedin','address_district','address_street','article','articlemore','address_lng','address_lat','gtag')); 
+        $totalArticles = Cache::remember('landing.articles.count', 1800, function () {
+            return Articles::published()->count();
+        });
+
+        $hasMoreArticles = $totalArticles > 4;
+
+        return view('landing.main', compact(
+            'settings', 'articles', 'hasMoreArticles'
+        )); 
     }
 
-
-
-    public function article(Request $request)
+    /**
+     * Show article detail page
+     */
+    public function article(Request $request): View
     {   
-        $id = $request->route('id');
-        $article = Articles::select('*')->where('url_key', $id)->first();
-        if (empty($article)){
+        $urlKey = $request->route('id');
+
+        // Get article with caching
+        $article = Cache::remember("article.{$urlKey}", 1800, function () use ($urlKey) {
+            return Articles::where('url_key', $urlKey)->first();
+        });
+
+        if (!$article) {
             abort(404);
         }
 
+        // Get settings for article page
+        $settings = Cache::remember('article.settings', 3600, function () {
+            return Settings::getMultiple([
+                'name', 'email', 'phone', 'whatsapp', 'facebook', 
+                'instagram', 'linkedin', 'address_district', 'address_street', 
+                'address_lat', 'address_lng', 'google_analytic_tag'
+            ]);
+        });
 
-        $app = Settings::whereIn('name', [
-            'name',
-            'email',
-            'phone',
-            'whatsapp',
-            'facebook',
-            'instagram',
-            'linkedin',
-            'address_district',
-            'address_street',
-            'address_lat',
-            'address_lng',
-            'google_analytic_tag'
-        ])->pluck('value', 'name');
+        // Get related articles
+        $relatedArticles = Cache::remember("article.related.{$article->id}", 1800, function () use ($article) {
+            return $article->getRelatedArticles(3);
+        });
 
-        return view('landing.article',compact('app','article')); 
+        return view('landing.article', compact('settings', 'article', 'relatedArticles')); 
     }
    
-    public function soon()
+    /**
+     * Show coming soon page
+     */
+    public function soon(): View
     {   
         return view('landing.soon'); 
     }
 
+    /**
+     * Get articles for AJAX loading
+     */
+    public function getArticles(Request $request)
+    {
+        $page = $request->get('page', 1);
+        $perPage = 4;
+        $offset = ($page - 1) * $perPage;
 
+        $articles = Articles::published()
+            ->select('*')
+            ->orderBy('updated_at', 'desc')
+            ->skip($offset)
+            ->limit($perPage)
+            ->get();
+
+        $hasMore = Articles::published()->count() > ($page * $perPage);
+
+        return response()->json([
+            'articles' => $articles,
+            'hasMore' => $hasMore,
+            'nextPage' => $hasMore ? $page + 1 : null,
+        ]);
+    }
+
+    /**
+     * Search articles
+     */
+    public function search(Request $request)
+    {
+        $query = $request->get('q');
+        
+        if (empty($query)) {
+            return response()->json(['articles' => [], 'total' => 0]);
+        }
+
+        $articles = Articles::published()
+            ->where(function ($q) use ($query) {
+                $q->where('title', 'like', "%{$query}%")
+                  ->orWhere('content', 'like', "%{$query}%")
+                  ->orWhere('short_description', 'like', "%{$query}%");
+            })
+            ->orderBy('updated_at', 'desc')
+            ->limit(10)
+            ->get();
+
+        return response()->json([
+            'articles' => $articles,
+            'total' => $articles->count(),
+            'query' => $query,
+        ]);
+    }
 }

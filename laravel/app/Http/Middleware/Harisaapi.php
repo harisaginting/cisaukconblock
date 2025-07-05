@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use App\Helpers\Harisa;
-use App\Models\Users;
+use App\Models\User;
 use Closure;
+use Illuminate\Http\Request;
 
 class Harisaapi
 {
@@ -15,21 +16,23 @@ class Harisaapi
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $token  = $request->header('Authorization');
-        $token  = str_replace('bearer ', '', strtolower($token));
-        $user   = Users::where('token' , $token)->first(); 
+        $token = $request->header('Authorization');
+        $token = str_replace('bearer ', '', strtolower($token));
+        $user = User::where('token', $token)->first(); 
         
-        $request->token = $token;
-        $request->data  = $request->json()->all();
+        // Merge custom data into request instead of setting properties directly
+        $request->merge([
+            'token' => $token,
+            'data' => $request->json()->all(),
+        ]);
 
-        if(!empty($request->header('Authorization')) && !empty($token) && !empty($user)){
-            $request->user  = $user->toArray();
+        if (!empty($request->header('Authorization')) && !empty($token) && !empty($user)) {
+            $request->merge(['user' => $user->toArray()]);
             return $next($request);    
-        }else{
+        } else {
             return Harisa::apiResponse(408, null, 'Unauthorized');
         }
-        
     }
 }
